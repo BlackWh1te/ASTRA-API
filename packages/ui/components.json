@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "aliases": {
+    "components": "@astra-api/ui/components",
+    "hooks": "@astra-api/ui/hooks",
+    "lib": "@astra-api/ui/lib",
+    "ui": "@astra-api/ui/components/primitives",
+    "utils": "@astra-api/ui/lib/utils"
+  },
+  "iconLibrary": "lucide",
+  "rsc": false,
+  "style": "new-york",
+  "tailwind": {
+    "baseColor": "zinc",
+    "config": "",
+    "css": "src/styles/theme.css",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "tsx": true
+}

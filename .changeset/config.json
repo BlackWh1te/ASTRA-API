@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.2/schema.json",
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "onlyUpdatePeerDependentsWhenOutOfRange": true
+  },
+  "access": "public",
+  "baseBranch": "main",
+  "changelog": ["@changesets/changelog-github", { "repo": "BlackWh1te/astra-api" }],
+  "commit": false,
+  "fixed": [],
+  "ignore": ["@astra-api/ui", "@astra-api/provider-registry", "@astra-api/dsh-bridge"],
+  "linked": [],
+  "updateInternalDependencies": "patch"
+}
