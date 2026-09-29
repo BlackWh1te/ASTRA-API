@@ -1,4 +1,4 @@
-import { CircleArrowUp, Search, Settings, Stethoscope } from 'lucide-react'
+import { CircleArrowUp, Search, Settings, Stethoscope, Key } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { Button, Tooltip } from '@astra-api/ui'
@@ -44,6 +44,10 @@ export function ShellTabBarActions() {
       .catch((error) => logger.error('Failed to open update dialog', error as Error))
   }
 
+  const handleKeyClick = () => {
+    window.dispatchEvent(new Event('show-astra-key-guard'))
+  }
+
   const updateLabel = appUpdateState.info
     ? t('settings.about.updateAvailable', { version: appUpdateState.info.version })
     : t('button.update_available')
@@ -51,6 +55,17 @@ export function ShellTabBarActions() {
   return (
     <div className="flex h-full shrink-0 items-stretch">
       <div className="flex items-center gap-1 pr-2 [-webkit-app-region:no-drag]">
+        <Tooltip content="Change API Key" placement="bottom" delay={800}>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-label="Change API Key"
+            onClick={handleKeyClick}
+            className="flex h-8 w-8 items-center justify-center rounded-[8px] text-green-500 transition-colors hover:bg-accent hover:text-green-400">
+            <Key size={16} strokeWidth={1.8} />
+          </Button>
+        </Tooltip>
         {hasUpdateAction && (
           <Tooltip content={updateLabel} placement="bottom" delay={800}>
             <Button
@@ -121,10 +136,25 @@ export function SidebarShellActions({
 }) {
   const { t } = useTranslation()
 
+  const handleKeyClick = () => {
+    window.dispatchEvent(new Event('show-astra-key-guard'))
+  }
+
   if (layout === 'icon') {
     return (
       <>
         <HelpMenu layout={layout} onFeedbackClick={onFeedbackClick} onOverlayOpenChange={onOverlayOpenChange} />
+        <Tooltip content="API Key" placement="right" delay={800}>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-label="Change API Key"
+            onClick={handleKeyClick}
+            className="flex h-9 w-9 items-center justify-center rounded-full text-green-500 transition-colors hover:bg-accent/60 hover:text-green-400">
+            <Key size={18} strokeWidth={1.6} />
+          </Button>
+        </Tooltip>
         <CommandTooltip command="app.settings.open" label={t('settings.title')} placement="right" delay={800}>
           <Button
             type="button"

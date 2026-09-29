@@ -13,6 +13,7 @@ import { CommandContextKeyProvider, CommandProvider } from '@renderer/components
 import { ConversationNotificationRuntime } from '@renderer/components/ConversationNotificationRuntime'
 import { ErrorBoundary } from '@renderer/components/ErrorBoundary'
 import { AppShell } from '@renderer/components/layout/AppShell'
+import { AstraKeyGuard } from '@renderer/components/layout/AstraKeyGuard'
 import { TabsProvider } from '@renderer/components/layout/TabsProvider'
 import { MandatoryGateProvider } from '@renderer/components/MandatoryGateProvider'
 import { PopupHost } from '@renderer/components/PopupHost'
@@ -144,7 +145,9 @@ function MainApp(): React.ReactElement {
         <CodeStyleProvider>
           <CommandContextKeyProvider>
             <CommandProvider>
-              <MainWindowContent />
+              <AstraKeyGuard>
+                <MainWindowContent />
+              </AstraKeyGuard>
             </CommandProvider>
           </CommandContextKeyProvider>
         </CodeStyleProvider>
