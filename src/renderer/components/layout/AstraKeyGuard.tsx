@@ -44,6 +44,8 @@ export function AstraKeyGuard({ children }: { children: React.ReactNode }) {
         setShowModal(false)
         if (!silent && key !== config?.apiKey) {
           await ipcApi.request('provider.update_config', { id: 'openai', config: { ...config, apiKey: key } })
+          // Pull models to update the ModelSwitcher for the new key's permissions
+          await ipcApi.request('provider.pull_models', { id: 'openai' }).catch(() => {})
           refetch()
         }
       } else {

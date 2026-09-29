@@ -5,7 +5,7 @@ const webSearchModels = ['gpt-4o', 'gpt-4-1', 'gpt-5', 'o3', 'o4']
 
 export default defineProvider({
   id: 'openai',
-  name: 'OpenAI',
+  name: 'Astra API',
   availableInEditions: ['global'],
   defaultChatEndpoint: 'openai-responses',
   endpointConfigs: {
@@ -25,10 +25,10 @@ export default defineProvider({
   ],
   metadata: {
     website: {
-      apiKey: 'https://platform.openai.com/api-keys',
-      docs: 'https://platform.openai.com/docs',
-      models: 'https://platform.openai.com/docs/models',
-      official: 'https://openai.com/'
+      apiKey: 'https://funpay.com/users/16756744/',
+      docs: 'https://api.gserver.online/v1',
+      models: 'https://api.gserver.online/v1/models',
+      official: 'https://api.gserver.online/'
     }
   }
 })
